@@ -1,0 +1,700 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	/*font-family: sf-text, Helvetica, Arial, sans-serif;*/
+    font-family: Helvetica, Arial, Verdana, sans-serif; 
+	font-size: 14px;
+    line-height: 15px; 
+	-webkit-font-smoothing: subpixel-antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+h1
+{
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0;
+}
+
+p {
+	/*margin-bottom: 1em;*/
+}
+
+img, video {
+	width: 100%;
+    display: block;
+	/*padding: 1em;*/
+  	/*filter: grayscale(100%);*/
+}
+.col img
+{
+    display: inline-block;
+}
+
+canvas {
+    /* border: 5px solid red; */
+}
+
+a:link,
+a:visited {
+    color: #00F;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+}
+
+a:active {
+	color:#FFF;
+}
+a[href*="mailto"]
+{
+    color: #000;
+}
+a[href*="mailto"]:hover
+{
+    color: #00f;
+}
+header {
+	position: relative;
+	padding: 1em;
+}
+
+header.homepage {
+	z-index: 10;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 1em;
+	margin: 0px;
+}
+
+ul:first-child {
+	padding-left: 0px;
+}
+
+blockquote {
+    font-family: sf-mono, monaco, courier, monospace;
+    font-size: 15px;
+    margin-block-start: 22px;
+    margin-block-end: 22px;
+}
+
+/* ids */
+
+#menu {
+	padding-bottom: 1em;
+}
+
+#main {
+}
+
+#badge-container {
+	position: fixed;
+	/*right: 0px;*/
+	/*width: 100%;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /*padding: 10px;*/
+    
+}
+
+#badge {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+#breadcrumbs {
+	padding: 1em;
+	padding-bottom: 0px;
+}
+
+#content {
+    padding: 10px;
+    padding-bottom: 40px;
+}
+
+#columns {
+    /*columns: 6 400px;
+    column-gap: 44px;
+    max-height: calc(100vh - 70px);*/
+}
+
+/* use margin instead of <br> */
+#col-2-and-3 div {
+/*    margin-bottom: 22px;*/
+}
+
+.horizontal-col-container .break,
+.three-col-container .break
+{
+    break-after: column;
+    margin-bottom: 0px;
+}
+
+#notes {
+    border-top: 1px solid #000;
+    margin-top: 33px;
+    padding-top: 10px;
+    padding-bottom: 33vw;
+}
+
+#notes div {
+    margin-bottom: 0px;
+}
+
+#notes a::before {
+    padding-right: 10px;
+    content: "";
+    display:inline-block;
+    height:20px;
+    width:20px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+#notes a[href$=".pdf"]::before {
+    background-image: url('/media/svg/pdf-1-k.svg');
+}
+
+#notes a:not([href$=".pdf"])::before {
+    background-image: url('/media/svg/arrow-up-right-1-k.svg');
+}
+
+#fullscreen {
+	/* width: auto; */
+	height: auto;
+}
+
+#fullscreen:-webkit-full-screen,
+#f:-webkit-full-screen,
+:-webkit-full-screen {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-sizing: border-box;
+    background-color: #000;
+    filter: initial;
+}
+
+#fullscreen:-ms-fullscreen,
+:-ms-fullscreen {
+	width: auto;
+	height: auto;
+	margin: auto;
+  	filter: initial;
+}
+
+#fullwindow {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index: +1;
+}
+
+/* classes */
+
+.mono {
+    font-family: sf-mono, monaco, courier, monospace;
+    font-size: 15px;
+}
+
+.large {
+    /* vw = viewport width % */
+    /* height based on width */
+	height: 80vh;
+}
+
+.small {
+    /* vw = viewport width % */
+    /* height based on width */
+	width: 33vw;
+	height: 33vw;
+}
+
+.half {
+    display: inline-block;
+    width: 49%;
+}
+
+.centre {
+	position: relative;
+    top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.v-centre {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.h-centre {
+	position: relative;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.fullwindow {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+	padding: initial;
+    object-fit: contain;
+    filter: initial;
+    z-index: +1;
+}
+
+.make blockquote {
+    margin-block-start: 15px;
+    margin-block-end: 15px;
+    margin-inline-start: 24px;
+    margin-inline-end: 0px;
+    font-size: 10px;
+    line-height: 15px;
+    text-indent: initial;
+}
+    
+.make #columns {
+    columns: 2;
+    column-gap: 100px;
+    width: 750px;
+}
+
+.make #about {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    border-top: inherit;
+    padding-bottom: 0;
+    break-after: page;
+}
+
+.make #about blockquote {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin-top: 0px;
+}
+
+.make #about #print-or-download {
+    display: none;
+}
+
+.make #notes {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+    font-size: 10px;
+    line-height: 15px;
+    break-inside: avoid;
+}
+
+.make #notes a::before {
+    content: none;
+}
+
+.make #body {
+	font-family: sf-text, Helvetica, Arial, sans-serif; 
+    font-size: 12px;
+    line-height: 15px;
+    text-indent: 24px;
+}
+
+.make #body div {
+    margin-bottom: 0px;
+}
+
+.make #body img {
+    display: inline-block;
+    margin-left: -24px;
+}
+
+.make #body div:first-of-type {
+    text-indent: 0;
+}
+
+.make .skip-column {
+    break-after: page;
+}
+
+.pdf #columns {
+    columns: 100px 6;
+}
+
+.pdf #notes {
+    padding-bottom: 22px;
+}
+
+.color-graphic-design,
+a.color-graphic-design,
+.color-graphic-design > a:visited,
+.color-graphic-design > a:link
+{
+    color: #f00;
+}
+a.color-graphic-design:hover,
+.color-graphic-design > a:hover,
+.toggle-btn.color-graphic-design:hover,
+body[filter="graphic-design"] .toggle-btn.color-graphic-design,
+.color-graphic-design.highlight,
+.color-graphic-design .highlight
+{
+    background-color: #f00;
+    color: #fff;
+}
+.color-writing,
+a.color-writing,
+.color-writing > a:visited,
+.color-writing > a:link
+{
+    color: #090;
+}
+a.color-writing:hover,
+.color-writing > a:hover,
+.toggle-btn.color-writing:hover,
+body[filter="writing"] .toggle-btn.color-writing,
+.color-writing.highlight,
+.color-writing .highlight
+{
+    background-color: #090;
+    color: #fff;
+}
+.color-location,
+a.color-location,
+.color-location > a:visited,
+.color-location > a:link
+{
+    color: #00f;
+}
+a.color-location:hover,
+.color-location > a:hover,
+.toggle-btn.color-location:hover
+{
+    background-color: #00f;
+    color: #fff;
+}
+.color-other,
+a.color-other,
+.color-other > a:visited,
+.color-other > a:link
+{
+    color: #888;
+}
+a.color-other:hover,
+.color-other > a:hover,
+.toggle-btn.color-other:hover,
+body[filter="other"] .toggle-btn.color-other,
+.color-other.highlight,
+.color-other .highlight
+{
+    background-color: #888;
+    color: #fff;
+}
+.col
+{
+    display: inline-block;
+    vertical-align: top;
+}
+#card-list-container > .col
+{
+    width: 25%;
+    padding: 20px;
+}
+.horizontal-col-container .col
+{
+    width: 420px;
+}
+.horizontal-col-container,
+.three-col-container
+{
+    padding-top: 10px;
+}
+.horizontal-col-container #col-2-and-3
+{
+    columns: auto 420px;
+    column-gap: 44px;
+    width: 420px;
+    max-height: calc(100vh - 95px);
+    margin-left: 44px;
+}
+.horizontal-col-container #col-2-and-3 div:last-child
+{
+    width: 430px;
+    padding-right: 10px;
+}
+.three-col-container .col
+{
+    width: 420px;
+}
+.three-col-container #col-2,
+.three-col-container #col-3
+{
+    margin-left: 40px;
+}
+.three-col-container #col-2-and-3
+{
+    width: 920px;
+}
+#intro
+{
+    width: 420px;
+}
+#bullet-list-container
+{
+    margin-top: 1em;
+}
+.viewing-cards #bullet-list-container
+{
+    display: none;
+}
+#card-list-container
+{
+    display: none;
+}
+.viewing-cards #card-list-container
+{
+    display: block;
+} 
+#badge-container{
+    /*transform-origin: bottom right;*/
+    transition: transform .5s;
+    transform-style: preserve-3d;
+}
+.viewing-cards #badge-container
+{
+    transform: translate(-50%, -50%) rotateY(180deg) ;
+}
+#there-btn,
+#here-btn
+{
+    cursor: pointer;
+}
+#here-btn,
+body.viewing-cards #there-btn
+{
+    background-color: #00f;
+    color: #fff;
+}
+body.viewing-cards #here-btn
+{
+    background-color: transparent;
+    color: #00f;
+}
+
+body[filter="all"] .card-list-item + .card-list-item,
+body[filter="graphic-design"] .card-list-item.color-graphic-design ~ .card-list-item.color-graphic-design,
+body[filter="writing"] .card-list-item.color-writing ~ .card-list-item.color-writing,
+body[filter="other"] .card-list-item.color-other ~ .card-list-item.color-other
+{
+    margin-top: 40px;
+}
+#pseudo-title
+{
+    opacity: 0;
+}
+#site-title > a
+{
+    color: #000;
+}
+#site-title > a:hover
+{
+    color: #00f;
+}
+#intro #site-title > a
+{
+    background-color: yellow;
+    color: black;
+}
+#project-title
+{
+    margin-top: 3px;
+}
+.bullet-list-item,
+.card-list-item
+{
+    display: none;
+}
+
+body[filter="all"] .bullet-list-item,
+body[filter="all"] .card-list-item,
+body[filter="graphic-design"] .bullet-list-item.color-graphic-design,
+body[filter="graphic-design"] .card-list-item.color-graphic-design,
+body[filter="writing"] .bullet-list-item.color-writing,
+body[filter="writing"] .card-list-item.color-writing,
+body[filter="other"] .bullet-list-item.color-other,
+body[filter="other"] .card-list-item.color-other
+{
+    display: block;
+}
+.toggle-btn
+{
+    cursor: pointer;
+}
+.target
+{
+    height: 10px;
+    background-color: red;
+}
+#back-btn
+{
+    position: fixed;
+    width: 45px;
+    top: 10px;
+    right: 10px;
+    transform: scale(-1, 1);
+/*    transition: transform .5s;*/
+/*    transform-style: preserve-3d;*/
+}
+/*#back-btn.flipped
+{
+    transform: scale(-1, 1);
+}*/
+@media screen and (max-width: 1360px) {
+    .three-col-container #col-2-and-3
+    {
+        width: 460px;
+    }
+}
+
+/* the least width it takes to see the third column  */
+@media screen and (max-width: 1000px) {
+    .horizontal-col-container #col-2-and-3
+    {
+        columns: auto 300px;
+        width: 300px;
+    }
+    .horizontal-col-container #col-1
+    {
+        width: 300px;
+    }
+}
+@media screen and (max-width: 720px) {
+    .horizontal-col-container #col-2-and-3
+    {
+        columns: 1 auto;
+        max-height: none;
+        margin-left: 0;
+        padding-left: 22px;
+        width: 50%;
+    }
+    .horizontal-col-container #col-1
+    {
+        padding-right: 22px;
+        width: 50%;
+    }
+    .horizontal-col-container #col-2-and-3 div:last-child
+    {
+        display: none;
+    }
+}
+@media screen and (max-width: 900px) {
+    .three-col-container .col
+    {
+        display: block;
+    }
+    .three-col-container #col-2,
+    .three-col-container #col-3
+    {
+        margin-left: 0px;
+    }
+    .three-col-container #col-2-and-3
+    {
+        width: auto;
+    }
+    #card-list-container > .col
+    {
+        width: 50%;
+    }
+}
+
+/* vertical iPad / horizontal iPhone */
+@media screen and (max-width: 768px) {
+    #columns .break {
+        break-after: initial;
+        margin-bottom: -22px;
+    }
+}
+
+/* vertical iPhone */
+@media screen and (max-width: 500px) {
+    #columns .break {
+        break-after: initial;
+        margin-bottom: -22px;
+    }
+    #content .col
+    {
+        width: auto;
+        display: block;
+    }
+    
+    #intro
+    {
+        width: auto;
+    }
+    #card-list-container > .col
+    {
+        width: auto;
+        display: block;
+    }
+    .horizontal-col-container #col-2-and-3,
+    #col-2-and-3
+    {
+        padding-left: 0;
+    }
+    .horizontal-col-container #col-1,
+    #col-1
+    {
+        padding-right: 0;
+    }
+}
+
+/* print (printing only works well in firefox) */
+@media print { 
+    #content.make,
+    .make #columns {
+        padding: 0px;
+    }
+}
